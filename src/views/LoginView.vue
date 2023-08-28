@@ -11,10 +11,19 @@ const pages = ref([
 ])
 
 const showNextButton = ref(false)
+const addStyles = ref('')
+const checkBiometry = ref(true) // use API
 
 onMounted(() => {
     setTimeout(() => {
         showNextButton.value = true
+        addStyles.value = 'filter: blur(8px); -webkit-filter: blur(8px); border-width: 3px; '
+
+        if (checkBiometry.value) {
+            addStyles.value += 'border-color: #21BE1D'
+        } else {
+            addStyles.value += 'border-color: red'
+        }
     }, 3000)
 })
 
@@ -24,7 +33,9 @@ onMounted(() => {
     <div>
         <h1>{{pages[0].title}}</h1>
         <p>{{pages[0].message}}</p>
-        <img src="https://thispersondoesnotexist.com/" alt="UserPhoto" class="user-image">
+        <Transition>
+            <img src="https://thispersondoesnotexist.com/" alt="UserPhoto" class="user-image" :style=addStyles>
+        </Transition>
     </div>
     <Transition>
         <RouterLink to="payment" class="button" v-show="showNextButton">К ОПЛАТЕ</RouterLink>
@@ -47,15 +58,23 @@ p {
     margin-block: 2rem;
     width: 300px;
     margin: auto;
+    color: rgba(0, 0, 0, 0.5);
 }
 
-.user-image {
+img.user-image {
     margin-top: 2rem;
     margin-bottom: 3rem;
     border-radius: 2rem;
     display: inline-block;
     height: auto;
     max-width: 450px;
+
+    border: 0px solid #21BE1D;
+}
+
+img.add-blur {
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
 }
 
 @media (max-width: 600px) {
