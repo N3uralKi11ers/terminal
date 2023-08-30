@@ -1,20 +1,28 @@
 <script setup>
+import {ref} from 'vue'
+const total = ref(1000)
 </script>
 
 
 <template>
-    <h1>Выберите карту</h1>
-    <div class="rel">
-        <div class="bill-block">
-            <div class="bill-text">ИТОГ:</div>
-            <div class="bill-text">1000 ₽</div>
+    <div class="container">
+        <h1>Выберите карту</h1>
+        <div class="rel">
+            <div class="bill-block">
+                <div class="bill-text">ИТОГ:</div>
+                <div class="bill-text">{{total}} ₽</div>
+            </div>
+            <RouterLink to="success" class="success">ОПЛАТИТЬ</RouterLink>
+            <RouterLink to="/" class="cancel">ОТМЕНА</RouterLink>
         </div>
-        <RouterLink to="success" class="success">ОПЛАТИТЬ</RouterLink>
-        <RouterLink to="cancel" class="cancel">ОТМЕНА</RouterLink>
     </div>
 </template>
 
 <style scoped>
+
+div.container {
+    padding: 1rem;
+}
 
 div.bill-block {
     text-align: justify;
