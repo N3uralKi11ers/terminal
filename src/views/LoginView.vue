@@ -1,4 +1,5 @@
 <script setup>
+import IconCheckmarkVue from '../components/icons/IconCheckmark.vue';
 import { RouterLink } from 'vue-router'
 import { ref, onMounted } from 'vue'
 
@@ -17,12 +18,12 @@ const checkBiometry = ref(true) // use API
 onMounted(() => {
     setTimeout(() => {
         showNextButton.value = true
-        addStyles.value = 'filter: blur(8px); -webkit-filter: blur(8px); border-width: 3px; '
+        addStyles.value = 'filter: blur(8px); -webkit-filter: blur(8px); '
 
         if (checkBiometry.value) {
-            addStyles.value += 'border-color: #21BE1D'
+            addStyles.value += 'border-color: #21BE1D; border-width: 3px;'
         } else {
-            addStyles.value += 'border-color: red'
+            addStyles.value += 'border-color: red; border-width: 3px;'
         }
     }, 3000)
 })
@@ -30,11 +31,14 @@ onMounted(() => {
 </script>
 
 <template>
-    <div>
+    <div class="container">
         <h1>{{pages[0].title}}</h1>
         <p>{{pages[0].message}}</p>
         <Transition>
-            <img src="https://thispersondoesnotexist.com/" alt="UserPhoto" class="user-image" :style=addStyles>
+            <div>
+                <img src="https://thispersondoesnotexist.com/" alt="UserPhoto" class="user-image" :style=addStyles>
+                <IconCheckmarkVue v-show="showNextButton" class="checkmark" :style=addStyles />
+            </div>
         </Transition>
     </div>
     <Transition>
@@ -43,15 +47,28 @@ onMounted(() => {
 </template>
 
 <style scoped>
+
+div.container {
+    padding: 1rem;
+}
+
 a.button {
     text-decoration: none;
     background-color: #21BE1D;
     color: aliceblue;
     padding-inline: 8rem;
     padding-block: 1rem;
-    margin-top: 10px;
     border-radius: 1em;
     font-weight: bold;
+}
+
+.checkmark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
 }
 
 p {
@@ -68,6 +85,7 @@ img.user-image {
     display: inline-block;
     height: auto;
     max-width: 450px;
+    position: relative;
 
     border: 0px solid #21BE1D;
 }
