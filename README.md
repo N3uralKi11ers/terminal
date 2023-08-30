@@ -1,15 +1,17 @@
 # terminal
 
-This template should help get you started developing with Vue 3 in Vite.
+Это приложение демонстрирует работу терминала. Ознакомиться с функционалом можно по [ссылке](https://euphonious-khapse-aafc00.netlify.app/).
 
-## Recommended IDE Setup
+## Routes
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+- `/` - загрузочная страница
+- `/login` - страница для биометрии
+- `/payment` - оплата корзины
+- `/success` - если все прошло успешно
 
-## Customize configuration
+## User Story
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
+![User Story](user-story.png)
 ## Project Setup
 
 ```sh
