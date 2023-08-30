@@ -13,7 +13,7 @@ const onTap = () => {
 </script>
 
 <template>
-    <div class="full" v-touch:tap="onTap">
+    <div class="container full-size" v-touch:tap="onTap">
         <IconCentrInvest />
         <h3>Коснитесь экрана для начала</h3>
         <h3>работы терминала</h3>
@@ -25,9 +25,12 @@ h3 {
     font-size: 1.2rem;
 }
 
-div.full {
+div.full-size {
     width: 100%;
-    height: 100%;
-    background: red;
+    height: 100vh;
+}
+
+div.container {
+    padding: 2rem;
 }
 </style>
