@@ -81,13 +81,12 @@ div.center-vertically {
   }
 
 div.three-columns {
-    display: table;
+    display: flex;
     border-collapse: collapse;
     margin: auto;
 }
 div.three-columns > .column {
-    display: table-cell;
-    width: 33.33%;
+    flex: 2;
     border-left: 1cap;
     text-align: start;
 }

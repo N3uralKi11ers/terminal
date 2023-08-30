@@ -15,8 +15,8 @@ const total = store.total
         <div class="margin-space">
             <div class="three-columns">
                 <div class="column">Наименование товара</div>
-                <div class="column">Количество</div>
-                <div class="column">Цена</div>
+                <div class="column" style="text-align: center; padding-left: 2rem;">Количество</div>
+                <div class="column" style="text-align: center; padding-left: 2rem;">Цена</div>
             </div>
         </div>
         <div class="cart-container">
@@ -51,13 +51,8 @@ div.three-columns {
 div.three-columns > .column {
     display: table-cell;
     width: 33.33%;
-    border-left: 0cap;
     text-align: start;
     font-size: large;
-}
-div.three-columns > .column:first-child {
-    /* Since we only want borders between the elements, remove the leftmost border */
-    border-left: none; 
 }
 
 
